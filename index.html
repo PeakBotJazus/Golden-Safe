@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Safe — Элитарное Хранилище</title>
+    <style>
+        /* Импорт шикарного шрифта */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;500;700&display=swap');
+
+        :root {
+            --gold-primary: #ffd700;
+            --gold-gradient: linear-gradient(135deg, #b38728, #fbf5b7, #daa520, #fbf5b7, #aa771c);
+            --dark-bg: #0d0d0c;
+            --panel-bg: rgba(22, 22, 20, 0.95);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 0l40 40-40 40L0 40z' fill='%231a150a' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Главный контейнер-сейф */
+        .safe-container {
+            background: var(--panel-bg);
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 0 50px rgba(218, 165, 32, 0.15), inset 0 0 20px rgba(0,0,0,0.6);
+            border: 2px solid transparent;
+            border-image: var(--gold-gradient) 1;
+            position: relative;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Завитушки и вензеля (Декоративные элементы) */
+      /* Завитушки и вензеля (Декоративные элементы) */
+/* Завитушки и вензеля (Декоративные элементы) */
+.vignette {
+    font-family: 'Cinzel Decorative', serif;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+h1 {
+    font-family: 'Cinzel Decorative', serif;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(250, 245, 183, 0.2);
+}
+
+        /* Формы и инпуты */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b38728;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            background: #121210;
+            border: 1px solid #3a3018;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+            background: #171714;
+        }
+
+        /* Элитарные золотые кнопки */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gold-gradient);
+            border: none;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(251, 245, 183, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #b38728;
+            color: var(--gold-primary);
+            box-shadow: none;
+            margin-top: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(218, 165, 32, 0.1);
+            box-shadow: none;
+        }
+
+        /* Список сохраненных паролей */
+        .password-list {
+            margin-top: 25px;
+            max-height: 250px;
+            overflow-y: auto;
+            text-align: left;
+            padding-right: 5px;
+        }
+
+        .password-item {
+            background: #141412;
+            border-left: 3px solid var(--gold-primary);
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 2px;
+        }
+
+        .password-info div {
+            margin-bottom: 4px;
+        }
+
+        .acc-name {
+            font-weight: 700;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .acc-pass {
+            font-family: monospace;
+            color: var(--gold-primary);
+            font-size: 15px;
+        }
+
+        .delete-btn {
+            background: transparent;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .delete-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Кастомный скроллбар для золотого стиля */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #121210; }
+        ::-webkit-scrollbar-thumb { background: #3a3018; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="safe-container">
+        <div class="vignette">❖ ⚜ ❖</div>
+        <h1>Golden Safe</h1>
+
+        <div id="screen-setup" class="screen">
+            <p style="color: #ccc; font-size: 13px; margin-bottom: 25px;">Добро пожаловать. Установите Ваш личный Мастер-Пароль для доступа к хранилищу.</p>
+            <div class="input-group">
+                <label for="setup-master">Придумайте Мастер-Пароль</label>
+                <input type="password" id="setup-master" placeholder="••••••••">
+            </div>
+            <button class="btn" onclick="setupMasterPassword()">Запереть Хранилище</button>
+        </div>
+
+        <div id="screen-login" class="screen">
+            <div class="input-group">
+                <label for="login-master">Введите Мастер-Пароль</label>
+                <input type="password" id="login-master" placeholder="••••••••">
+            </div>
+            <button class="btn" onclick="unlockSafe()">Открыть Сейф</button>
+        </div>
+
+        <div id="screen-main" class="screen">
+            <div class="input-group">
+                <label for="acc-input">Название аккаунта / Сервис</label>
+                <input type="text" id="acc-input" placeholder="Например: Telegram, Google, Сбер">
+            </div>
+            <div class="input-group">
+                <label for="pass-input">Пароль</label>
+                <input type="text" id="pass-input" placeholder="Ваш секретный пароль">
+            </div>
+            <button class="btn" onclick="savePassword()">Инкрустировать в хранилище</button>
+            
+            <button class="btn btn-secondary" onclick="openVault()">Посмотреть сохраненные пароли</button>
+        </div>
+
+        <div id="screen-vault" class="screen">
+            <h2 style="font-family: 'Cinzel Decorative', serif; color: var(--gold-primary); font-size: 18px; margin-bottom: 20px;">Ваши Реликвии</h2>
+            
+            <div class="password-list" id="vault-list">
+                </div>
+
+            <button class="btn btn-secondary" onclick="switchScreen('screen-main')">Назад к добавлению</button>
+            <button class="btn" style="background: #1a150a; color: var(--gold-primary); border: 1px solid #3a3018; margin-top: 10px;" onclick="lockSafeOut()">Запереть сейф</button>
+        </div>
+        
+        <div class="vignette" style="margin-top: 30px; margin-bottom: 0;">❖ ⚜ ❖</div>
+    </div>
+
+    <script>
+        // Проверяем, создан ли уже мастер-пароль
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("masterPassword")) {
+                switchScreen("screen-setup");
+            } else {
+                switchScreen("screen-login");
+            }
+        });
+
+        // Функция переключения экранов
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        // 1. Установка мастер-пароля
+        function setupMasterPassword() {
+            const pass = document.getElementById("setup-master").value.trim();
+            if (!pass) {
+                alert("Пароль не может быть пустым, сэр.");
+                return;
+            }
+            localStorage.setItem("masterPassword", pass);
+            localStorage.setItem("vaultData", JSON.stringify([])); // Инициализируем пустую базу данных
+            alert("Мастер-пароль успешно установлен. Сейф заперт!");
+            switchScreen("screen-login");
+        }
+
+        // 2. Вход в сейф
+        function unlockSafe() {
+            const inputPass = document.getElementById("login-master").value;
+            const savedMaster = localStorage.getItem("masterPassword");
+
+            if (inputPass === savedMaster) {
+                document.getElementById("login-master").value = ""; // Очищаем поле
+                switchScreen("screen-main");
+            } else {
+                alert("Доступ отклонен. Неверный мастер-пароль.");
+            }
+        }
+
+        // 3. Сохранение нового аккаунта и пароля
+        function savePassword() {
+            const account = document.getElementById("acc-input").value.trim();
+            const password = document.getElementById("pass-input").value.trim();
+
+            if (!account || !password) {
+                alert("Заполните оба поля, чтобы сохранить данные.");
+                return;
+            }
+
+            const vaultData = JSON.parse(localStorage.getItem("vaultData")) || [];
+            vaultData.push({ account, password });
+            localStorage.setItem("vaultData", JSON.stringify(vaultData));
+
+            // Очищаем инпуты
+            document.getElementById("acc-input").value = "";
+            document.getElementById("pass-input").value = "";
+
+            alert("Данные надежно защищены золотым тиснением!");
+        }
+
+        // 4. Открытие раздела с паролями
+        function openVault() {
+            renderVault();
+            switchScreen("screen-vault");
+        }
+
+        // Отображение списка паролей
+        function renderVault() {
+            const listContainer = document.getElementById("vault-list");
+            const vaultData = JSON.parse(localStorage.getItem("vaultData")) || [];
+
+            listContainer.innerHTML = "";
+
+            if (vaultData.length === 0) {
+                listContainer.innerHTML = `<p style="color: #666; text-align: center; font-size: 13px;">Хранилище пока пусто.</p>`;
+                return;
+            }
+
+            vaultData.forEach((item, index) => {
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "password-item";
+                itemDiv.innerHTML = `
+                    <div class="password-info">
+                        <div class="acc-name">${escapeHTML(item.account)}</div>
+                        <div class="acc-pass">${escapeHTML(item.password)}</div>
+                    </div>
+                    <button class="delete-btn" onclick="deletePassword(${index})">Удалить</button>
+                `;
+                listContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Удаление пароля
+        function deletePassword(index) {
+            if (confirm("Вы уверены, что хотите безвозвратно стереть эту запись?")) {
+                const vaultData = JSON.parse(localStorage.getItem("vaultData")) || [];
+                vaultData.splice(index, 1);
+                localStorage.setItem("vaultData", JSON.stringify(vaultData));
+                renderVault();
+            }
+        }
+
+        // Функция блокировки (выход на экран логина)
+        function lockSafeOut() {
+            switchScreen("screen-login");
+        }
+
+        // Безопасность: предотвращение XSS инъекций
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+    </script>
+</body>
+</html>
