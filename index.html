@@ -2,124 +2,120 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palais de L'Or — Императорская Крипта</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Palais de L'Or — Черный Сейф</title>
     <style>
-        /* Импорт ультра-элитарных шрифтов */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Pinyon+Script&family=Playfair+Display+SC:wght@700;900&display=swap');
+        /* Импорт оригинальных благородных шрифтов */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,600;0,700;1,600&family=Pinyon+Script&family=Playfair+Display+SC:wght@700;900&display=swap');
 
         :root {
-            --gold-light: #fff6c3;
+            --gold-light: #fff8d6;
             --gold-med: #d4af37;
-            --gold-dark: #aa7c11;
-            --gold-deep: #594310;
-            --gold-gradient: linear-gradient(135deg, #594310 0%, #aa7c11 22%, #fbf5b7 45%, #d4af37 65%, #fff6c3 85%, #4a3b1a 100%);
-            --royal-black: #070604;
-            --palace-bg: rgba(12, 10, 7, 0.97);
+            --gold-dark: #b38600;
+            --gold-gradient: linear-gradient(135deg, #4a3b1a 0%, #b38600 25%, #fff8d6 50%, #d4af37 75%, #2b220f 100%);
+            --deep-black: #0a0a0a;
+            --safe-bg: rgba(14, 14, 14, 0.98);
         }
 
         body {
-            background-color: var(--royal-black);
+            background-color: var(--deep-black);
             color: #fcf9ee;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             margin: 0;
-            padding: 40px 10px;
+            padding: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
             
-            /* Роскошные королевские обои с крупным дамасским узором */
+            /* Оригинальный глубокий текстурный фон */
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 10 C65 30, 85 40, 100 25 C90 55, 65 50, 60 80 C55 50, 30 55, 20 25 C35 40, 55 30, 60 10 Z M60 80 C65 95, 75 100, 90 105 C70 110, 65 115, 60 120 C55 115, 50 110, 30 105 C45 100, 55 95, 60 80 Z' fill='none' stroke='%23d4af37' stroke-width='0.4' stroke-opacity='0.12'/%3E%3Cpath d='M60 40 C62 48, 70 52, 75 50 C68 56, 62 64, 60 70 C58 64, 52 56, 45 50 C50 52, 58 48, 60 40 Z' fill='%23aa7c11' fill-opacity='0.05'/%3E%3C/svg%3E");
+                radial-gradient(circle at 50% 50%, rgba(179, 134, 0, 0.05) 0%, transparent 75%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23b38600' stroke-width='0.3' stroke-opacity='0.08'/%3E%3C/svg%3E");
         }
 
-        /* Дворцовый Кованый Сейф */
+        /* Черно-золотой Сейф */
         .safe-container {
-            background: var(--palace-bg);
+            background: var(--safe-bg);
             width: 100%;
-            max-width: 540px;
-            padding: 65px 50px;
+            max-width: 460px;
+            /* Адаптивные отступы: подстраиваются под высоту экрана смартфона */
+            padding: calc(25px + 3vh) calc(15px + 2vw);
             position: relative;
             text-align: center;
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             box-sizing: border-box;
             
-            /* Сложная золотая рама */
+            /* Массивная золотая рама */
             border: 6px double transparent;
             border-image: var(--gold-gradient) 1;
-            outline: 2px solid var(--gold-deep);
-            outline-offset: -16px;
+            outline: 2px solid #594310;
+            outline-offset: -14px;
 
             box-shadow: 
-                0 0 70px rgba(212, 175, 55, 0.2),
-                0 40px 80px rgba(0,0,0,0.9),
-                inset 0 0 50px rgba(0, 0, 0, 0.95);
+                0 0 50px rgba(0, 0, 0, 0.95),
+                inset 0 0 40px rgba(0, 0, 0, 0.9);
         }
 
-        /* Полная кружевная кованая рама по периметру внутри сейфа */
+        /* Внутренняя тонкая золотая нить */
         .safe-container::before {
             content: "";
             position: absolute;
-            top: 22px; right: 22px; bottom: 22px; left: 22px;
+            top: 20px; right: 20px; bottom: 20px; left: 20px;
             border: 1px solid transparent;
             border-image: linear-gradient(to right, var(--gold-dark), var(--gold-light), var(--gold-dark)) 1;
             pointer-events: none;
-            opacity: 0.4;
+            opacity: 0.35;
         }
 
-        /* Угловые витиеватые лепнины (Барокко) */
+        /* Угловая графика (масштабируется на мобилках) */
         .flourish-corner {
             position: absolute;
-            width: 75px;
-            height: 75px;
+            width: calc(35px + 2vw);
+            height: calc(35px + 2vw);
             pointer-events: none;
-            opacity: 0.9;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+            opacity: 0.85;
         }
-        .fc-tl { top: 24px; left: 24px; }
-        .fc-tr { top: 24px; right: 24px; transform: scaleX(-1); }
-        .fc-bl { bottom: 24px; left: 24px; transform: scaleY(-1); }
-        .fc-br { bottom: 24px; right: 24px; transform: scale(-1); }
+        .fc-tl { top: 22px; left: 22px; }
+        .fc-tr { top: 22px; right: 22px; transform: scaleX(-1); }
+        .fc-bl { bottom: 22px; left: 22px; transform: scaleY(-1); }
+        .fc-br { bottom: 22px; right: 22px; transform: scale(-1); }
 
-        /* Большой центральный барочный герб сверху */
+        /* Центральная виньетка */
         .center-crest {
-            width: 160px;
-            height: 50px;
-            margin: -15px auto 10px auto;
+            width: 120px;
+            height: 38px;
+            margin: -10px auto 5px auto;
             display: block;
-            opacity: 0.95;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            opacity: 0.9;
         }
 
-        /* Каллиграфическая роспись-монограмма */
+        /* Вензель */
         .royal-monogram {
             font-family: 'Pinyon Script', cursive;
-            font-size: 60px;
-            line-height: 0.2;
+            font-size: 52px;
+            line-height: 0.1;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             display: block;
         }
 
-        /* Разделитель-виньетка */
+        /* Разделительные линии */
         .palace-divider {
-            height: 35px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath d='M10 15 Q 25 5, 35 15 T 50 15 T 65 15 T 90 15 M50 2 Q 47 15, 50 28 Q 53 15, 50 2 M35 15 C 35 5, 45 5, 45 15 C 45 25, 35 25, 35 15 M65 15 C 65 5, 55 5, 55 15 C 55 25, 65 25, 65 15' fill='none' stroke='%23d4af37' stroke-width='0.8'/%3E%3Ccircle cx='50' cy='15' r='2.5' fill='%23fff6c3'/%3E%3C/svg%3E");
+            height: 22px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath d='M10 15 Q 25 5, 35 15 T 50 15 T 65 15 T 90 15 M50 2 Q 47 15, 50 28 Q 53 15, 50 2 M35 15 C 35 5, 45 5, 45 15 C 45 25, 35 25, 35 15 M65 15 C 65 5, 55 5, 55 15 C 55 25, 65 25, 65 15' fill='none' stroke='%23d4af37' stroke-width='0.8'/%3E%3Ccircle cx='50' cy='15' r='2' fill='%23fff8d6'/%3E%3C/svg%3E");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            margin: 15px auto 25px auto;
+            margin: 12px auto;
             width: 85%;
         }
 
-        /* Заголовки королевского двора */
         h1 {
             font-family: 'Playfair Display SC', serif;
             font-weight: 900;
@@ -127,239 +123,192 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 38px;
+            font-size: calc(20px + 1.2vw);
             margin: 0;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px rgba(255, 246, 195, 0.25);
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         .subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 16px;
+            font-size: 13px;
             color: var(--gold-med);
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 8px;
+            margin-top: 4px;
             font-weight: 700;
         }
 
-        /* Стили экранов */
         .screen { display: none; }
         .screen.active {
             display: block;
-            animation: PalaceWaltz 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+            animation: SafeUnfold 0.5s ease-out;
         }
 
-        /* Поля ввода Императорской Канцелярии */
         .input-group {
-            margin-bottom: 28px;
+            margin-bottom: 16px;
             text-align: left;
-            position: relative;
         }
 
         label {
             display: block;
             font-family: 'Playfair Display SC', serif;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: #e5c158;
-            margin-bottom: 12px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #d4af37;
+            margin-bottom: 6px;
             font-weight: 700;
-            text-shadow: 1px 2px 4px #000;
         }
 
+        /* Строгие черные инпуты с золотой рамкой */
         input {
             width: 100%;
-            padding: 18px 24px;
-            background: linear-gradient(135deg, #0c0a07, #19150e);
-            border: 2px solid var(--gold-deep);
+            padding: 14px 16px;
+            background: #0f0f0f;
+            border: 1px solid #4a3b1a;
+            border-image: linear-gradient(to bottom, #594310, #2b220f) 1;
             color: #fff;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 19px;
+            font-size: 17px;
             font-weight: 700;
             border-radius: 0;
             box-sizing: border-box;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            letter-spacing: 2px;
-            box-shadow: inset 0 5px 15px rgba(0,0,0,0.95);
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.9);
+           appearance: none;
+-webkit-appearance: none;
         }
 
         input:focus {
             outline: none;
             border-image: var(--gold-gradient) 1;
-            box-shadow: 0 0 30px rgba(255, 246, 195, 0.35), inset 0 2px 5px rgba(0,0,0,0.7);
-            background: #1c1810;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2), inset 0 2px 4px rgba(0,0,0,0.8);
+            background: #141414;
         }
 
-        /* Кнопки — Слитки Сусального Золота */
+        /* Кнопки — Золотые Слитки */
         .btn {
             width: 100%;
-            padding: 22px;
+            padding: 15px;
             background: var(--gold-gradient);
             border: none;
-            color: #070604;
+            color: #0a0a0a;
             font-family: 'Playfair Display SC', serif;
             font-weight: 900;
-            font-size: 13px;
-            letter-spacing: 4px;
+            font-size: 11px;
+            letter-spacing: 3px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            margin-top: 15px;
-            position: relative;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.6),
-                inset 0 1px 0 rgba(255,255,255,0.6),
-                inset 0 -4px 0 rgba(0,0,0,0.35);
+            transition: all 0.25s;
+            margin-top: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 
-                0 18px 40px rgba(212, 175, 55, 0.45),
-                inset 0 1px 0 rgba(255,255,255,0.7);
-            filter: brightness(1.25);
-        }
-
-        .btn:active {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+            filter: brightness(1.15);
         }
 
         .btn-secondary {
             background: transparent;
             border: 1px solid var(--gold-dark);
             border-image: var(--gold-gradient) 1;
-            color: var(--gold-light);
+            color: #fff8d6;
             box-shadow: none;
-            margin-top: 25px;
+            margin-top: 12px;
         }
 
-        .btn-secondary:hover {
-            background: linear-gradient(rgba(212, 175, 55, 0.15), transparent);
-            filter: brightness(1.15);
-        }
-
-        /* Сокровищница (Список Реликвий) */
+        /* Адаптивный список сохраненных данных */
         .password-list {
-            margin-top: 30px;
-            max-height: 280px;
+            margin-top: 15px;
+            /* Ограничение высоты, чтобы интерфейс на мобилках не уползал вниз */
+            max-height: calc(160px + 12vh); 
             overflow-y: auto;
-            padding-right: 8px;
+            padding-right: 4px;
         }
 
         .password-item {
-            background: linear-gradient(90deg, #15120c 0%, #0d0b08 100%);
-            border: 1px solid var(--gold-deep);
-            border-left: 5px solid var(--gold-med);
-            padding: 22px;
-            margin-bottom: 20px;
+            background: #121212;
+            border: 1px solid #2b220f;
+            border-left: 3px solid var(--gold-med);
+            padding: 12px 14px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-            position: relative;
-        }
-
-        /* Гербовая лилия на фоне каждой ячейки */
-        .password-item::after {
-            content: "⚜";
-            position: absolute;
-            right: 110px;
-            color: rgba(214, 175, 55, 0.08);
-            font-size: 32px;
-            pointer-events: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
 
         .acc-name {
             font-family: 'Playfair Display SC', serif;
             font-weight: 700;
             color: #fff;
-            font-size: 15px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
         .acc-pass {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
             color: var(--gold-light);
-            font-size: 21px;
-            letter-spacing: 2px;
-            margin-top: 4px;
-            text-shadow: 0 0 10px rgba(255,246,195,0.6);
+            font-size: 17px;
+            letter-spacing: 1px;
+            margin-top: 2px;
         }
 
         .delete-btn {
             background: transparent;
             border: none;
-            color: #ff5555;
+            color: #cc4444;
             cursor: pointer;
             font-family: 'Playfair Display SC', serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 2px;
-            transition: all 0.3s;
-            z-index: 2;
+            letter-spacing: 1px;
+            padding: 5px;
         }
 
-        .delete-btn:hover {
-            color: #ff8888;
-            text-shadow: 0 0 12px rgba(255,85,85,0.6);
-            transform: scale(1.05);
-        }
+        /* Изящный тонкий скроллбар */
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); }
 
-        /* Изящный Скроллбар */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #070604; }
-        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
-
-        @keyframes PalaceWaltz {
-            from { opacity: 0; transform: scale(0.96) translateY(5px); filter: blur(6px); }
-            to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        @keyframes SafeUnfold {
+            from { opacity: 0; transform: scale(0.98); filter: blur(3px); }
+            to { opacity: 1; transform: scale(1); filter: blur(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Векторные узоры барокко (Лепнина и Гербы) -->
+    <!-- Векторное золото -->
     <svg style="display:none;">
-        <!-- Угловой вензель -->
         <g id="baroque-corner">
-            <path d='M 5,5 C 25,5 35,15 35,30 C 35,45 20,40 20,30 C 20,20 30,25 25,15 C 15,10 10,25 5,5 Z M 5,5 C 5,25 15,35 30,35 C 45,35 40,20 30,20 C 20,20 25,30 15,25 C 10,15 25,10 5,5 Z' fill='url(%23gold-grad)' filter='url(%23shadow)'/>
-            <path d='M 12,12 C 18,15 15,25 25,25' fill='none' stroke='url(%23gold-grad)' stroke-width='1.2'/>
-            <circle cx='5' cy='5' r='2' fill='%23fff6c3'/>
-            <circle cx='35' cy='30' r='1.5' fill='%23d4af37'/>
+            <path d='M 5,5 C 25,5 35,15 35,30 C 35,45 20,40 20,30 C 20,20 30,25 25,15 C 15,10 10,25 5,5 Z M 5,5 C 5,25 15,35 30,35 C 45,35 40,20 30,20 C 20,20 25,30 15,25 C 10,15 25,10 5,5 Z' fill='url(%23gold-grad)'/>
+            <circle cx='5' cy='5' r='1.5' fill='%23fff8d6'/>
         </g>
-        <!-- Центральный большой герб -->
         <g id="baroque-crest">
-            <path d='M 10,25 Q 40,0 80,25 Q 120,0 150,25 Q 120,40 80,25 Q 40,40 10,25 Z' fill='none' stroke='url(%23gold-grad)' stroke-width='2' />
-            <path d='M 40,25 C 55,10 70,40 80,25 C 90,40 105,10 120,25' fill='none' stroke='url(%23gold-grad)' stroke-width='1.2' />
-            <path d='M 80,5 Q 80,45 80,45' fill='none' stroke='url(%23gold-grad)' stroke-width='1.5'/>
-            <circle cx='80' cy='25' r='3.5' fill='%23fff6c3'/>
+            <path d='M 10,25 Q 40,0 80,25 Q 120,0 150,25 Q 120,40 80,25 Q 40,40 10,25 Z' fill='none' stroke='url(%23gold-grad)' stroke-width='1.5' />
+            <circle cx='80' cy='25' r='2' fill='%23fff8d6'/>
         </g>
-        
         <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#594310" />
+            <stop offset="0%" stop-color="#4a3b1a" />
             <stop offset="30%" stop-color="#d4af37" />
-            <stop offset="50%" stop-color="#fff6c3" />
-            <stop offset="70%" stop-color="#aa7c11" />
-            <stop offset="100%" stop-color="#594310" />
+            <stop offset="50%" stop-color="#fff8d6" />
+            <stop offset="100%" stop-color="#2b220f" />
         </linearGradient>
     </svg>
 
     <div class="safe-container">
-        <!-- Четыре огромные угловые золотые лепки -->
+        <!-- Адаптивные элементы декора -->
         <svg class="flourish-corner fc-tl" viewBox="0 0 50 50"><use href="#baroque-corner"/></svg>
         <svg class="flourish-corner fc-tr" viewBox="0 0 50 50"><use href="#baroque-corner"/></svg>
         <svg class="flourish-corner fc-bl" viewBox="0 0 50 50"><use href="#baroque-corner"/></svg>
         <svg class="flourish-corner fc-br" viewBox="0 0 50 50"><use href="#baroque-corner"/></svg>
 
-        <!-- Центральный золотой герб монархии -->
         <svg class="center-crest" viewBox="0 0 160 50"><use href="#baroque-crest"/></svg>
 
-        <!-- Королевская Монограмма -->
         <span class="royal-monogram">V</span>
         
         <h1>Palais de L'Or</h1>
@@ -367,10 +316,10 @@
         
         <div class="palace-divider"></div>
 
-        <!-- ЭКРАН 1: УСТАНОВКА МАСТЕР-ПАРОЛЯ -->
+        <!-- ЭКРАН 1: СОЗДАНИЕ -->
         <div id="screen-setup" class="screen">
-            <p style="color: #c9b99a; font-size: 15px; margin-bottom: 30px; line-height: 1.7; font-style: italic;">
-                Приветствуем Вас в фамильном склепе конфиденциальности. <br>Выкуйте Великую Мастер-Печать, дабы запереть врата.
+            <p style="color: #a89a7d; font-size: 14px; margin-bottom: 20px; line-height: 1.5; font-style: italic;">
+                Выкуйте Великую Мастер-Печать, дабы запереть врата.
             </p>
             <div class="input-group">
                 <label for="setup-master">Великий Мастер-Пароль</label>
@@ -388,36 +337,33 @@
             <button class="btn" onclick="unlockSafe()">Аудиенция у Хранилища</button>
         </div>
 
-        <!-- ЭКРАН 3: ДОБАВЛЕНИЕ ПАРОЛЕЙ -->
+        <!-- ЭКРАН 3: ДОБАВЛЕНИЕ -->
         <div id="screen-main" class="screen">
             <div class="input-group">
-                <label for="acc-input">Дворцовый Аккаунт / Угодья</label>
-                <input type="text" id="acc-input" placeholder="Например: Royal Crypto, Imperial Bank, Secret Mail">
+                <label for="acc-input">Дворцовый Аккаунт</label>
+                <input type="text" id="acc-input" placeholder="Например: Imperial Bank">
             </div>
             <div class="input-group">
                 <label for="pass-input">Тайный Манускрипт (Пароль)</label>
                 <input type="text" id="pass-input" placeholder="Секретные символы...">
             </div>
-            <button class="btn" onclick="savePassword()">Высечь на Золотой Скрижали</button>
-            
+            <button class="btn" onclick="savePassword()">Высечь на Скрижали</button>
             <button class="btn btn-secondary" onclick="openVault()">Раскрыть Королевскую Казну</button>
         </div>
 
-        <!-- ЭКРАН 4: ПРОСМОТР ПАРОЛЕЙ -->
+        <!-- ЭКРАН 4: ХРАНИЛИЩЕ -->
         <div id="screen-vault" class="screen">
-            <h2 style="font-family: 'Playfair Display SC', serif; color: #fff6c3; font-size: 20px; margin-bottom: 25px; letter-spacing: 3px;">
+            <h2 style="font-family: 'Playfair Display SC', serif; color: #fff8d6; font-size: 16px; margin-bottom: 12px; letter-spacing: 2px;">
                 Драгоценные Реликвии
             </h2>
             
-            <div class="password-list" id="vault-list">
-                <!-- Сюда вставляются пароли -->
-            </div>
+            <div class="password-list" id="vault-list"></div>
 
             <button class="btn btn-secondary" onclick="switchScreen('screen-main')">К Скрижалям Добавления</button>
-            <button class="btn" style="background: linear-gradient(135deg, #1c1507, #0a0804); color: #fff6c3; border: 1px solid var(--gold-deep); margin-top: 15px;" onclick="lockSafeOut()">Опечатать Замок</button>
+            <button class="btn" style="background: linear-gradient(135deg, #1f1a10, #0a0a0a); color: #fff8d6; border: 1px solid #4a3b1a; margin-top: 10px;" onclick="lockSafeOut()">Опечатать Замок</button>
         </div>
         
-        <div class="palace-divider" style="margin-top: 35px; margin-bottom: 0;"></div>
+        <div class="palace-divider" style="margin-top: 20px; margin-bottom: 0;"></div>
     </div>
 
     <script>
@@ -437,12 +383,12 @@
         function setupMasterPassword() {
             const pass = document.getElementById("setup-master").value.trim();
             if (!pass) {
-                alert("Королевский пароль не может зиять пустотой, Милорд.");
+                alert("Пароль не может быть пустым.");
                 return;
             }
             localStorage.setItem("masterPassword", pass);
             localStorage.setItem("vaultData", JSON.stringify([]));
-            alert("Мастер-Печать отлита! Дворцовые врата заперты наглухо.");
+            alert("Мастер-Печать успешно создана!");
             switchScreen("screen-login");
         }
 
@@ -454,7 +400,7 @@
                 document.getElementById("login-master").value = "";
                 switchScreen("screen-main");
             } else {
-                alert("Стража! Доступ заблокирован. Неверный шифр.");
+                alert("Неверный шифр доступа.");
             }
         }
 
@@ -463,7 +409,7 @@
             const password = document.getElementById("pass-input").value.trim();
 
             if (!account || !password) {
-                alert("Заполните скрижали перед тем, как отдать их казначею.");
+                alert("Пожалуйста, заполните оба поля.");
                 return;
             }
 
@@ -474,7 +420,7 @@
             document.getElementById("acc-input").value = "";
             document.getElementById("pass-input").value = "";
 
-            alert("Запись инкрустирована чистейшим сусальным золотом!");
+            alert("Запись успешно добавлена в сейф!");
         }
 
         function openVault() {
@@ -489,7 +435,7 @@
             listContainer.innerHTML = "";
 
             if (vaultData.length === 0) {
-                listContainer.innerHTML = `<p style="color: #d4af37; text-align: center; font-size: 16px; font-style: italic;">Ваша судейская казна пуста.</p>`;
+                listContainer.innerHTML = `<p style="color: #d4af37; text-align: center; font-size: 14px; font-style: italic;">Хранилище пока пусто.</p>`;
                 return;
             }
 
@@ -497,18 +443,18 @@
                 const itemDiv = document.createElement("div");
                 itemDiv.className = "password-item";
                 itemDiv.innerHTML = `
-                    <div style="text-align: left;">
-                        <div class="acc-name">${escapeHTML(item.account)}</div>
-                        <div class="acc-pass">${escapeHTML(item.password)}</div>
+                    <div style="text-align: left; max-width: 70%; overflow: hidden;">
+                        <div class="acc-name" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${escapeHTML(item.account)}</div>
+                        <div class="acc-pass" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${escapeHTML(item.password)}</div>
                     </div>
-                    <button class="delete-btn" onclick="deletePassword(${index})">Переплавить</button>
+                    <button class="delete-btn" onclick="deletePassword(${index})">Удалить</button>
                 `;
                 listContainer.appendChild(itemDiv);
             });
         }
 
         function deletePassword(index) {
-            if (confirm("Вы готовы предать эту реликвию огню и безвозвратно переплавить её?")) {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
                 const vaultData = JSON.parse(localStorage.getItem("vaultData")) || [];
                 vaultData.splice(index, 1);
                 localStorage.setItem("vaultData", JSON.stringify(vaultData));
